@@ -1,0 +1,44 @@
+{
+  "name": "forge-aws-sdk-hello-world",
+  "version": "0.0.0",
+  "description": "Example Forge app using AWS SDK with Forge's native Node.js runtime",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/ibuchanan/forge-aws-sdk-hello-world",
+  "contributors": [
+    "Ian Buchanan <ibuchanan@atlassian.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibuchanan/forge-aws-sdk-hello-world"
+  },
+  "engines": {
+    "npm": "9",
+    "node": "18"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "forge-deploy": "forge deploy --no-verify",
+    "forge-install": "forge install",
+    "forge-lint": "forge lint",
+    "forge-lint:verbose": "forge lint --verbose",
+    "forge-login": "forge login",
+    "forge-register": "forge register",
+    "forge-restore": "forge restore",
+    "forge-tunnel": "forge tunnel"
+  },
+  "devDependencies": {
+    "@forge/cli": "^6.19.1",
+    "@tsconfig/node18": "18",
+    "@types/node": "18",
+    "typescript": "5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.427.0",
+    "convict": "^6.2.4",
+    "node-icecream": "^1.0.0",
+    "zod": "^3.22.4"
+  }
+}

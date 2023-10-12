@@ -1,0 +1,12 @@
+modules:
+  webtrigger:
+    - key: forge-aws-sdk-hello-world-webtrigger
+      function: main
+  function:
+    - key: main
+      handler: index.listener
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/3af4f90a-89a1-4150-b13d-79d51020b197
+  name: forge-aws-sdk-hello-world
