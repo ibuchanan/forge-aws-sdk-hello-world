@@ -30,15 +30,14 @@
     "forge-tunnel": "forge tunnel"
   },
   "devDependencies": {
-    "@forge/cli": "^6.19.1",
+    "@forge/cli": "^6.20",
     "@tsconfig/node18": "18",
     "@types/node": "18",
     "typescript": "5"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.427.0",
-    "convict": "^6.2.4",
-    "node-icecream": "^1.0.0",
-    "zod": "^3.22.4"
+    "@aws-sdk/client-s3": "^3",
+    "node-icecream": "^1",
+    "zod": "^3"
   }
 }
