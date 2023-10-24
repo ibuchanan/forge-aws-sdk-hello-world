@@ -1,11 +1,26 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "importHelpers": false,
     "lib": [
-      "ESNext"
+      "esnext"
     ],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "sourceMap": true,
-    "target": "ESNext"
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "outDir": "./out",
+    "rootDir": "src",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2017",
+    "types": [
+      "jest",
+      "node"
+    ],
   }
 }

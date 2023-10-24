@@ -3,3 +3,4 @@ node_modules/
 
 # Cache and generated files
 tsconfig.tsbuildinfo
+out/
