@@ -12,10 +12,18 @@ const envSchema = z.object({
     AWS_SECRET_ACCESS_KEY: z.string().min(1),
 });
 
+/*
 const config = envSchema.parse({
     AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION,
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+});
+*/
+
+const config = envSchema.parse({
+    AWS_DEFAULT_REGION: "us-west-2",
+    AWS_ACCESS_KEY_ID: "AKIAIOSFODNN7EXAMPLE",
+    AWS_SECRET_ACCESS_KEY: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
 });
 
 export default config;

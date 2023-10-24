@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Example Forge app using AWS SDK with Forge's native Node.js runtime",
   "private": true,
-  "type": "module",
   "license": "Apache-2.0",
   "homepage": "https://github.com/ibuchanan/forge-aws-sdk-hello-world",
   "contributors": [
@@ -17,32 +16,38 @@
     "npm": "9",
     "node": "18"
   },
-  "main": "src/index.js",
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
+  "files": [
+    "out"
+  ],
   "scripts": {
     "build": "tsc",
     "forge-deploy": "forge deploy --no-verify",
     "forge-install": "forge install",
-    "forge-install-list": "forge isntall list",
+    "forge-install-list": "forge install list",
     "forge-webtrigger": "forge webtrigger",
     "forge-logs": "forge logs",
-    "forge-lint": "forge lint",
+    "forge-lint": "forge lint --fix",
     "forge-lint:verbose": "forge lint --verbose",
     "forge-login": "forge login",
     "forge-register": "forge register",
     "forge-restore": "forge restore",
-    "forge-tunnel": "forge tunnel"
+    "forge-tunnel": "forge tunnel",
+    "forge-uninstall": "forge uninstall",
+    "lint": "npm run forge-lint"
   },
   "devDependencies": {
     "@forge/cli": "^6.20",
     "@tsconfig/node18": "18",
     "@types/node": "18",
+    "@types/jest": "24",
+    "@typescript-eslint/eslint-plugin": "6",
+    "@typescript-eslint/parser": "6",
     "typescript": "5"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3",
-    "aws-crt": "^1",
-    "encoding": "^0.1",
-    "node-icecream": "^1",
     "zod": "^3"
   }
 }
