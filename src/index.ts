@@ -1,5 +1,3 @@
-import s3lifecycle from "./aws";
-
 export function listener(req: any) {
   try {
     const body = JSON.parse(req.body);

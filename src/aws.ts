@@ -80,7 +80,7 @@ async function s3lifecycle(bucket: Bucket) {
         if (objects) {
             // For every object in each page, delete it.
             for (const object of objects) {
-                ic(object);
+                console.log(object);
                 await s3Client.send(
                     new DeleteObjectCommand({ Bucket: bucketName, Key: object.Key })
                 );
