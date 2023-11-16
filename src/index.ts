@@ -2,12 +2,7 @@ export function listener(req: any) {
   try {
     const body = JSON.parse(req.body);
     console.log(body);
-    return {
-      body: '{"hello": "world"}',
-      headers: { "Content-Type": ["application/json"] },
-      statusCode: 200,
-      statusText: "OK",
-    };
+    return s3lifecycle(body);
   } catch (error) {
     if (error instanceof SyntaxError) {
       const invalidJson = {
