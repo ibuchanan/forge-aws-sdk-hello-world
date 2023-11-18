@@ -11,3 +11,7 @@ app:
   id: ari:cloud:ecosystem::app/3af4f90a-89a1-4150-b13d-79d51020b197
 permissions:
   scopes: []
+  external:
+    fetch:
+      backend:
+        - "*.amazonaws.com"
