@@ -1,10 +1,10 @@
 import s3lifecycle from "./aws";
 
-export function listener(req: any) {
+export async function listener(req: any) {
   try {
     const body = JSON.parse(req.body);
     console.log(body);
-    s3lifecycle(req);
+    await s3lifecycle(req);
     return {
       body: '{"hello": "world"}',
       headers: { "Content-Type": ["application/json"] },
