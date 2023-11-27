@@ -10,7 +10,7 @@ import {
 } from "@aws-sdk/client-s3";
 import { z } from "zod";
 
-const BucketSchema = z.object({
+export const BucketSchema = z.object({
   /*
     https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
     */
@@ -24,9 +24,9 @@ const BucketSchema = z.object({
   content: z.string().min(1),
 });
 
-type Bucket = z.infer<typeof BucketSchema>;
+export type Bucket = z.infer<typeof BucketSchema>;
 
-async function s3lifecycle(bucket: Bucket) {
+export async function s3lifecycle(bucket: Bucket) {
   console.log(bucket);
 
   // A region and credentials can be declared explicitly. For example
@@ -100,5 +100,3 @@ async function s3lifecycle(bucket: Bucket) {
 
   return true;
 }
-
-export default s3lifecycle;

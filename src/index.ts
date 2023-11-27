@@ -1,10 +1,10 @@
-import s3lifecycle from "./aws";
+import { BucketSchema, s3lifecycle } from "./aws";
 
 export async function listener(req: any) {
   try {
     const body = JSON.parse(req.body);
-    console.log(body);
-    await s3lifecycle(req);
+    const bucket = BucketSchema.parse(body);
+    await s3lifecycle(bucket);
     return {
       body: '{"hello": "world"}',
       headers: { "Content-Type": ["application/json"] },
