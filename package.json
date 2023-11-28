@@ -26,6 +26,7 @@
     "forge-deploy": "forge deploy --no-verify",
     "forge-install": "forge install",
     "forge-install-list": "forge install list",
+    "forge-install:upgrade": "forge install --upgrade",
     "forge-webtrigger": "forge webtrigger",
     "forge-logs": "forge logs",
     "forge-lint": "forge lint --fix",
@@ -38,7 +39,7 @@
     "lint": "npm run forge-lint"
   },
   "devDependencies": {
-    "@forge/cli": "^6.20.2",
+    "@forge/cli": "^6.21",
     "@tsconfig/node18": "18",
     "@types/jest": "24",
     "@types/node": "18",
