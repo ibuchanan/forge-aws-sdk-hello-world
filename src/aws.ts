@@ -45,11 +45,11 @@ export async function s3lifecycle(bucket: Bucket) {
 
   // Create an Amazon S3 bucket. The epoch timestamp is appended
   // to the name to make it unique.
-  const bucketName = `forge-bucket-${Date.now()}`;
+  const bucketName = bucket.name;
   console.log(bucketName);
   await s3Client.send(
     new CreateBucketCommand({
-      Bucket: bucket.name,
+      Bucket: bucketName,
     })
   );
 
