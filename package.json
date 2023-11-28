@@ -36,7 +36,8 @@
     "forge-restore": "forge restore",
     "forge-tunnel": "forge tunnel",
     "forge-uninstall": "forge uninstall",
-    "lint": "npm run forge-lint"
+    "lint": "npm run forge-lint",
+    "provision": "echo not-implemented"
   },
   "devDependencies": {
     "@forge/cli": "^6.21",
