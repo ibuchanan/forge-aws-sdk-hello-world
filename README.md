@@ -1,15 +1,13 @@
 # The Atlassian Forge AWS SDK Demo
 
-[![Apache 2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+[![Apache 2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
-This Forge app demonstrates how to call AWS using the new Forge Native Node.js Runtime.
-
-## Resources
+Example Forge app using native Node.js runtime and AWS SDK for JavaScript
 
 * Just getting started with Atlassian Forge? [Try a simple "hello world" app first](https://go.atlassian.com/forge)
 * Interested in the new runtime? [Learn more from the Atlassian documentation](https://go.atlassian.com/runtime)
 * Interested in the AWS SDK for JavaScript? [Learn more from the AWS documentation](aws.amazon.com/sdk-for-javascript)
-* Question? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
+* Questions? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
 
 ## Exploring the app
 
@@ -67,14 +65,4 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 Copyright (c) 2023 Atlassian US., Inc.
 Apache 2.0 licensed, see [LICENSE](LICENSE) file.
 
-<br/> 
-
-> Pick one of the following:
-
-[![With ❤️ from Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-cheers.png)](https://www.atlassian.com)
-
-[![With ❤️ from Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-with-thanks.png)](https://www.atlassian.com)
-
 [![With ❤️ from Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-with-thanks-light.png)](https://www.atlassian.com)
-
-[![With ❤️ from Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-cheers-light.png)](https://www.atlassian.com)

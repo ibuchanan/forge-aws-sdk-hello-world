@@ -1,7 +1,7 @@
 {
-  "name": "forge-aws-sdk-hello-world",
+  "name": "forge-aws-demo",
   "version": "0.0.0",
-  "description": "Example Forge app using AWS SDK with Forge's native Node.js runtime",
+  "description": "Example Forge app using native Node.js runtime and AWS SDK for JavaScript",
   "private": true,
   "license": "Apache-2.0",
   "homepage": "https://github.com/ibuchanan/forge-aws-sdk-hello-world",
