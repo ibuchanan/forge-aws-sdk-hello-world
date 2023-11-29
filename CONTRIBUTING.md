@@ -4,9 +4,9 @@ Thank you for considering a contribution to the Forge AWS Demo!
 Pull requests, issues and comments are welcome.
 For pull requests, please:
 
-* Add tests for new features and bug fixes
-* Follow the existing style
-* Separate unrelated changes into multiple pull requests
+- Add tests for new features and bug fixes
+- Follow the existing style
+- Separate unrelated changes into multiple pull requests
 
 See the existing issues for things to start contributing.
 
@@ -23,5 +23,5 @@ we ask that you please follow the appropriate link below to digitally sign the C
 The Corporate CLA is for those who are contributing as a member of an organization
 and the individual CLA is for those contributing as an individual.
 
-* [CLA for corporate contributors](https://opensource.atlassian.com/corporate)
-* [CLA for individuals](https://opensource.atlassian.com/individual)
+- [CLA for corporate contributors](https://opensource.atlassian.com/corporate)
+- [CLA for individuals](https://opensource.atlassian.com/individual)

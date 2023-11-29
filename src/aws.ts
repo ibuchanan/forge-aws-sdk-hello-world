@@ -19,7 +19,7 @@ export const BucketSchema = z.object({
     .min(3)
     .max(63)
     .regex(
-      new RegExp("(?!(^xn--|.+-s3alias$))^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$")
+      new RegExp("(?!(^xn--|.+-s3alias$))^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$"),
     ),
   content: z.string().min(1),
 });
@@ -50,7 +50,7 @@ export async function s3lifecycle(bucket: Bucket) {
   await s3Client.send(
     new CreateBucketCommand({
       Bucket: bucketName,
-    })
+    }),
   );
 
   // Put an object into an Amazon S3 bucket.
@@ -60,7 +60,7 @@ export async function s3lifecycle(bucket: Bucket) {
       Bucket: bucketName,
       Key: "content.txt",
       Body: bucket.content,
-    })
+    }),
   );
 
   // Read the object.
@@ -69,7 +69,7 @@ export async function s3lifecycle(bucket: Bucket) {
     new GetObjectCommand({
       Bucket: bucketName,
       Key: "content.txt",
-    })
+    }),
   );
 
   console.log(await Body?.transformToString());
@@ -79,7 +79,7 @@ export async function s3lifecycle(bucket: Bucket) {
   console.log("clean up `bucketName`");
   const paginator = paginateListObjectsV2(
     { client: s3Client },
-    { Bucket: bucketName }
+    { Bucket: bucketName },
   );
   for await (const page of paginator) {
     const objects = page.Contents;
@@ -88,7 +88,7 @@ export async function s3lifecycle(bucket: Bucket) {
       for (const object of objects) {
         console.log(JSON.stringify(object));
         await s3Client.send(
-          new DeleteObjectCommand({ Bucket: bucketName, Key: object.Key })
+          new DeleteObjectCommand({ Bucket: bucketName, Key: object.Key }),
         );
       }
     }

@@ -6,9 +6,7 @@
     "declarationMap": true,
     "esModuleInterop": true,
     "importHelpers": false,
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noUnusedLocals": true,
@@ -18,9 +16,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"]
   }
 }

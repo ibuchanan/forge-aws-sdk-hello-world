@@ -4,10 +4,10 @@
 
 Example Forge app using native Node.js runtime and AWS SDK for JavaScript
 
-* Just getting started with Atlassian Forge? [Try a simple "hello world" app first](https://go.atlassian.com/forge)
-* Interested in the new runtime? [Learn more from the Atlassian documentation](https://go.atlassian.com/runtime)
-* Interested in the AWS SDK for JavaScript? [Learn more from the AWS documentation](aws.amazon.com/sdk-for-javascript)
-* Questions? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
+- Just getting started with Atlassian Forge? [Try a simple "hello world" app first](https://go.atlassian.com/forge)
+- Interested in the new runtime? [Learn more from the Atlassian documentation](https://go.atlassian.com/runtime)
+- Interested in the AWS SDK for JavaScript? [Learn more from the AWS documentation](aws.amazon.com/sdk-for-javascript)
+- Questions? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
 
 ## Exploring the app
 
@@ -23,14 +23,17 @@ you may have to tune settings to fit your environment.
 
 ### Set environment variables
 
-Edit `.bashrc` to include:
+Copy `.env.example` as `.env`.
+Edit `.env` with your credentials for
+[Forge](https://developer.atlassian.com/platform/forge/getting-started/#using-environment-variables-to-login) and
+[AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-set).
 
 ```bash
-export FORGE_EMAIL=
-export FORGE_API_TOKEN=
-export AWS_DEFAULT_REGION=
-export AWS_ACCESS_KEY_ID=
-export AWS_SECRET_ACCESS_KEY=
+FORGE_EMAIL=
+FORGE_API_TOKEN=
+AWS_DEFAULT_REGION=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
 ```
 
 ### Install dependencies
@@ -46,19 +49,20 @@ the Forge CLI is installed as a _local_ dependency
 and wrapped with `npm-script` commands.
 
 ```bash
-npm run forge-register
+npm run forge:register
 npm run build
-npm run forge-deploy
-npm run forge-install
-npm run forge-install-list
-npm run forge-webtrigger
+npm run lint
+npm run forge:deploy
+npm run forge:install
+npm run forge:install-list
+npm run forge:webtrigger
 npm run provision -- ...
 ```
 
 ## Contributions
 
 Contributions to [Project name] are welcome!
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details. 
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
