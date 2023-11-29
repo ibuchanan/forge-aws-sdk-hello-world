@@ -4,7 +4,7 @@
 node --version > .nvmrc
 tmp=$(mktemp) && \
     jq \
-        --arg node_version "`node --version | cut -c2-`" \
+        --arg node_version "$(node --version | cut -c2-)" \
         '.engines = { "node":$node_version }' \
         package.json \
         > "$tmp" && \
