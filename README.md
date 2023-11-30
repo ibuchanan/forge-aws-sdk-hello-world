@@ -27,6 +27,8 @@ Copy `.env.example` as `.env`.
 Edit `.env` with your credentials for
 [Forge](https://developer.atlassian.com/platform/forge/getting-started/#using-environment-variables-to-login) and
 [AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-set).
+Comments in the `.env` will cause warnings when linting
+so you can remove them from your own copy.
 
 ```bash
 FORGE_EMAIL=
@@ -47,17 +49,26 @@ npm install
 For the sake of quick & easy access to the demo,
 the Forge CLI is installed as a _local_ dependency
 and wrapped with `npm-script` commands.
+Run the following with `npm run ...`
 
-```bash
-npm run forge:register
-npm run build
-npm run lint
-npm run forge:deploy
-npm run forge:install
-npm run forge:install-list
-npm run forge:webtrigger
-npm run provision -- ...
-```
+<dl>
+  <dt><code>first-time</code></dt>
+  <dd>Performs <code>forge register</code> and creates a copy of <code>.env</code> if you haven't done so already</dd>
+  <dt><code>build</code></dt>
+  <dd>Transpiles the Typescript files</dd>
+  <dt><code>lint</code></dt>
+  <dd>Checks the syntax of the code, including <code>forge lint</code></dd>
+  <dt><code>deploy</code></dt>
+  <dd>Copies <code>.env</code> variables into the default Forge environment using <code>forge variable set $key $value</code> and deploys using <code>forge deploy</code></dd>
+  <dt><code>forge:install</code></dt>
+  <dd>Runs <code>forge install</code> so you can install the app into your test instance</dd>
+  <dt><code>forge:install-list</code></dt>
+  <dd>Requests the <code>forge install list</code> which both confirms the install and provides the Installation ID, which is needed to obtain the webtrigger URL</dd>
+  <dt><code>forge:webtrigger</code></dt>
+  <dd>Requests <code>forge webtrigger</code> to get the HTTP URL for the provisioning webtrigger</dd>
+  <dt><code>provision -- $webtriggerUrl</code></dt>
+  <dd>Makes an HTTP request to the webtrigger URL that will provision AWS resources</dd>
+</dl>
 
 ## Contributions
 

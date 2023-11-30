@@ -27,7 +27,7 @@
     "clean": "rm -rf ./out",
     "build": "npm -s run clean && npm -s run build:typescript",
     "build:typescript": "tsc",
-    "forge:deploy": "set -a && . ./.env && forge deploy --no-verify",
+    "forge:deploy": "set -a && . ./.env && forge deploy",
     "forge:environments": "set -a && . ./.env && forge environments",
     "forge:feedback": "set -a && . ./.env && forge feedback",
     "forge:install": "set -a && . ./.env && forge install",
@@ -49,7 +49,7 @@
     "forge:variables:set:dotenv": "./scripts/forge-vars-from-env.sh",
     "forge:webtrigger": "set -a && . ./.env && forge webtrigger",
     "forge:whoami": "set -a && . ./.env && forge whoami",
-    "lint": "npm -s run lint:typescript && npm -s run lint:dotenv && npm -s run lint:eslint && npm -s run lint:prettier && npm -s run lint:forge",
+    "lint": "npm -s run lint:typescript && npm -s run lint:dotenv && npm -s run lint:eslint && npm -s run lint:prettier -- --check && npm -s run lint:forge",
     "lint:fix": "npm -s run lint:typescript && npm -s run lint:dotenv && npm -s run lint:fix:eslint && npm -s run lint:fix:prettier && npm -s run lint:fix:forge",
     "lint:typescript": "npm -s run build:typescript -- --noEmit",
     "lint:dotenv": "./scripts/check-env.js",
@@ -63,7 +63,8 @@
     "test": "npm -s run test:jest",
     "test:jest": "jest .",
     "deploy": "npm -s run forge:variables:set:dotenv && npm -s run forge:deploy",
-    "provision": "echo not-implemented"
+    "first-time": "cp --update ./.env.example ./.env && npm -s run forge:register",
+    "provision": "./scripts/webtrigger-provision.sh"
   },
   "devDependencies": {
     "@forge/cli": "^6.21",
