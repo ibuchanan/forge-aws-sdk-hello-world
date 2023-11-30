@@ -1,10 +1,22 @@
 modules:
+  trigger:
+    - key: trigger-lifecycle
+      function: lifecycle-handler
+      events:
+        - avi:forge:installed:app
+        - avi:forge:upgraded:app
   webtrigger:
-    - key: forge-aws-sdk-hello-world-webtrigger
-      function: main
+    - key: webtrigger-provision
+      function: provision-handler
+    - key: webtrigger-deprovision
+      function: deprovision-handler
   function:
-    - key: main
-      handler: index.listener
+    - key: lifecycle-handler
+      handler: index.lifecycle
+    - key: provision-handler
+      handler: index.webtriggerProvision
+    - key: deprovision-handler
+      handler: index.webtriggerDeprovision
 app:
   runtime:
     name: nodejs18.x
