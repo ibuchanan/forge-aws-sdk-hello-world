@@ -48,7 +48,7 @@ const App = () => {
         onClick={async () => {
           if (isString(context.cloudId) && isString(jiraContext.issueKey)) {
             console.log(`Context cloudId: ${context.cloudId}`);
-            console.log(`Jira context issueId: ${jiraContext.issueKey}`);
+            console.log(`Jira context issueKey: ${jiraContext.issueKey}`);
             const content = await issueSummary(jiraContext.issueKey);
             await storeTenantData(context.cloudId, content);
           }

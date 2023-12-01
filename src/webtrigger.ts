@@ -2,7 +2,7 @@ import { provisionForTenant, deprovisionForTenant } from "./aws/provision";
 
 function buildResponse(message = "OK", statusCode = 200, statusText = "OK") {
   return {
-    body: { message: message },
+    body: JSON.stringify({ message: message }),
     headers: { "Content-Type": ["application/json"] },
     statusCode: statusCode,
     statusText: statusText,
@@ -10,7 +10,6 @@ function buildResponse(message = "OK", statusCode = 200, statusText = "OK") {
 }
 
 export async function webtriggerProvision(req: any) {
-  console.log(`Environment variables: ${process.env}`);
   try {
     const body = JSON.parse(req.body);
     console.log(`Webtrigger request: ${JSON.stringify(body)}`);
@@ -28,7 +27,6 @@ export async function webtriggerProvision(req: any) {
 }
 
 export async function webtriggerDeprovision(req: any) {
-  console.log(`Environment variables: ${process.env}`);
   try {
     const body = JSON.parse(req.body);
     console.log(`Webtrigger request: ${JSON.stringify(body)}`);

@@ -40,8 +40,9 @@ async function isExistingBucket(name: string) {
   const matchingName = ListBucketsOutput.Buckets?.filter(
     (bucket) => bucket.Name === name,
   );
-  const isExisting = (typeof matchingName !== "undefined" && matchingName.length > 0);
-  console.log(`Bucket ${name} does${(isExisting) ? ' ' : ' not '}exist`);
+  const isExisting =
+    typeof matchingName !== "undefined" && matchingName.length > 0;
+  console.log(`Bucket ${name} does${isExisting ? " " : " not "}exist`);
   return isExisting;
 }
 
@@ -54,12 +55,13 @@ export async function provisionS3bucket(name: string) {
 
   console.log(`S3 bucket ${name} does not exist. Creating...`);
   // Create the Amazon S3 bucket.
-  await s3Client.send(
+  const response = await s3Client.send(
     new CreateBucketCommand({
       Bucket: name,
     }),
   );
-  console.log(`Created S3 bucket named: ${name}`);
+  // console.log(`S3 response: ${JSON.stringify(response)}`);
+  console.log(`Created S3 bucket: ${response.Location}`);
 }
 
 export async function deleteS3bucket(name: string) {
@@ -104,6 +106,7 @@ export async function storeFileInS3bucket(bucket: string, content: string) {
   }
   // Put an object into an Amazon S3 bucket.
   console.log(`Write: ${content.slice(0, 4)}...`);
+  console.log(`s3Client: ${JSON.stringify(s3Client.config)}`);
   await s3Client.send(
     new PutObjectCommand({
       Bucket: bucket,
