@@ -25,7 +25,10 @@ async function issueSummary(issueKey: string) {
     });
   console.log(`Jira response: ${response.status} ${response.statusText}`);
   const body = await response.json();
-  return body.summary;
+  // console.log(`Issue: ${JSON.stringify(body)}`);
+  const content = body.fields.summary;
+  console.log(`Content: ${content}`);
+  return content;
 }
 
 const App = () => {
@@ -36,8 +39,6 @@ const App = () => {
     typeof context.platformContext === "undefined" ||
     typeof context.cloudId === "undefined" ||
     typeof jiraContext.issueKey === "undefined";
-  console.log(`Context cloudId: ${context.cloudId}`);
-  console.log(`Jira context issueId: ${jiraContext.issueKey}`);
 
   return (
     <Fragment>
@@ -46,6 +47,8 @@ const App = () => {
         disabled={isMissingContext}
         onClick={async () => {
           if (isString(context.cloudId) && isString(jiraContext.issueKey)) {
+            console.log(`Context cloudId: ${context.cloudId}`);
+            console.log(`Jira context issueId: ${jiraContext.issueKey}`);
             const content = await issueSummary(jiraContext.issueKey);
             await storeTenantData(context.cloudId, content);
           }

@@ -22,8 +22,7 @@ const s3Client = new S3Client({
   },
 });
 
-export async function provisionS3bucket(name: string) {
-  // Check if the Amazon S3 bucket already exists
+async function isExistingBucket(name: string) {
   const ListBucketsOutput = await s3Client.send(new ListBucketsCommand({}));
   // { // ListBucketsOutput
   //   Buckets: [ // Buckets
@@ -37,12 +36,19 @@ export async function provisionS3bucket(name: string) {
   //     ID: "STRING_VALUE",
   //   },
   // };
-  console.log(`ListBucketsOutput: ${JSON.stringify(ListBucketsOutput)}`);
+  // console.log(`ListBucketsOutput: ${JSON.stringify(ListBucketsOutput)}`);
   const matchingName = ListBucketsOutput.Buckets?.filter(
     (bucket) => bucket.Name === name,
   );
-  if (typeof matchingName !== "undefined" && matchingName.length > 0) {
-    console.log(`S3 bucket ${name} already exists`);
+  const isExisting = (typeof matchingName !== "undefined" && matchingName.length > 0);
+  console.log(`Bucket ${name} does${(isExisting) ? ' ' : ' not '}exist`);
+  return isExisting;
+}
+
+export async function provisionS3bucket(name: string) {
+  // Check if the Amazon S3 bucket already exists
+  if (await isExistingBucket(name)) {
+    console.log(`S3 bucket ${name} already exists. No need to recreate it.`);
     return;
   }
 
@@ -58,24 +64,7 @@ export async function provisionS3bucket(name: string) {
 
 export async function deleteS3bucket(name: string) {
   // Check if the Amazon S3 bucket already exists
-  const ListBucketsOutput = await s3Client.send(new ListBucketsCommand({}));
-  // { // ListBucketsOutput
-  //   Buckets: [ // Buckets
-  //     { // Bucket
-  //       Name: "STRING_VALUE",
-  //       CreationDate: new Date("TIMESTAMP"),
-  //     },
-  //   ],
-  //   Owner: { // Owner
-  //     DisplayName: "STRING_VALUE",
-  //     ID: "STRING_VALUE",
-  //   },
-  // };
-  console.log(`ListBucketsOutput: ${JSON.stringify(ListBucketsOutput)}`);
-  const matchingName = ListBucketsOutput.Buckets?.filter(
-    (bucket) => bucket.Name === name,
-  );
-  if (typeof matchingName !== "undefined" && matchingName.length === 0) {
+  if (!(await isExistingBucket(name))) {
     console.log(`S3 bucket ${name} does not exist. Nothing to clean up.`);
     return;
   }
@@ -108,8 +97,13 @@ export async function deleteS3bucket(name: string) {
 }
 
 export async function storeFileInS3bucket(bucket: string, content: string) {
+  // Check if the Amazon S3 bucket already exists
+  if (!(await isExistingBucket(bucket))) {
+    console.log(`S3 bucket ${bucket} does not exist. Can't store any content.`);
+    return;
+  }
   // Put an object into an Amazon S3 bucket.
-  console.log(`write: ${content.slice(0, 4)}...`);
+  console.log(`Write: ${content.slice(0, 4)}...`);
   await s3Client.send(
     new PutObjectCommand({
       Bucket: bucket,
