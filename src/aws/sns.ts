@@ -29,7 +29,7 @@ async function findUniqueArnOrNullForName(name: string) {
       topics.push(...page.Topics);
     }
   }
-  console.log(`Topic list: ${JSON.stringify(topics)}`);
+  // console.log(`Topic list: ${JSON.stringify(topics)}`);
   const matchingName = topics.filter((topic) => topic.TopicArn?.endsWith(name));
   console.log(`Found ${matchingName.length} topic(s) matching name`);
   var result = null;
@@ -80,6 +80,8 @@ export async function sendMessageInSNStopic(topic: string, content: string) {
       TopicArn: topicArn as string,
     }),
   );
-  console.log(`SNS response: ${JSON.stringify(response)}`);
-  console.log(`Sent Message: ${content}`);
+  // console.log(`SNS response: ${JSON.stringify(response)}`);
+  console.log(
+    `Sent Message (${response.$metadata.httpStatusCode}): ${response.MessageId}`,
+  );
 }

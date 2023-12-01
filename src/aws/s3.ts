@@ -106,12 +106,13 @@ export async function storeFileInS3bucket(bucket: string, content: string) {
   }
   // Put an object into an Amazon S3 bucket.
   console.log(`Write: ${content.slice(0, 4)}...`);
-  console.log(`s3Client: ${JSON.stringify(s3Client.config)}`);
-  await s3Client.send(
+  const response = await s3Client.send(
     new PutObjectCommand({
       Bucket: bucket,
       Key: "content.txt",
       Body: content,
     }),
   );
+  // console.log(`S3 response: ${JSON.stringify(response)}`);
+  console.log(`Added file (${response.$metadata.httpStatusCode}): ${content}`);
 }

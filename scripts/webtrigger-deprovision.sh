@@ -6,4 +6,5 @@ FORGE_CLIENT_ID=$(npm -s run provision:clientid)
 
 curl --request POST "$FORGE_WEBTRIGGER" \
   --header 'Content-Type: application/json' \
-  --data "$FORGE_CLIENT_ID"
+  --data "$FORGE_CLIENT_ID" \
+  --silent

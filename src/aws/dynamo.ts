@@ -100,6 +100,8 @@ export async function storeRecordInDynamoDBtable(
   });
 
   const response = await ddbClient.send(command);
-  console.log(`DynamoDB response: ${JSON.stringify(response)}`);
-  console.log(`Added record: ${content}`);
+  // console.log(`DynamoDB response: ${JSON.stringify(response)}`);
+  console.log(
+    `Added record (${response.$metadata.httpStatusCode}): ${content}`,
+  );
 }

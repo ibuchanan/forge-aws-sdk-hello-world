@@ -35,6 +35,7 @@ so you can remove them from your own copy.
 ```bash
 FORGE_EMAIL=
 FORGE_API_TOKEN=
+FORGE_DEV_SITE=
 AWS_DEFAULT_REGION=
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
@@ -62,19 +63,19 @@ Run the following with `npm run ...`
   <dd>Checks the syntax of the code, including <code>forge lint</code></dd>
   <dt><code>deploy</code></dt>
   <dd>Copies <code>.env</code> variables into the default Forge environment using <code>forge variable set $key $value</code> and deploys using <code>forge deploy</code></dd>
+  <dt><code>forge:tunnel</code></dt>
+  <dd>Runs <code>forge tunnel</code> so you can read logs locally as the app runs</dd>
   <dt><code>forge:install</code></dt>
   <dd>Runs <code>forge install</code> so you can install the app into your test instance</dd>
-  <dt><code>forge:install-list</code></dt>
-  <dd>Requests the <code>forge install list</code> which both confirms the install and provides the Installation ID, which is needed to obtain the webtrigger URL</dd>
-  <dt><code>forge:webtrigger</code></dt>
-  <dd>Requests <code>forge webtrigger</code> to get the HTTP URL for the provisioning webtrigger</dd>
-  <dt><code>provision -- $webtriggerUrl</code></dt>
-  <dd>Makes an HTTP request to the webtrigger URL that will provision AWS resources</dd>
+  <dt><code>provision</code></dt>
+  <dd>Finds the <code>clientId</code> for <code>FORGE_DEV_SITE</code>, reads the webtrigger URL, and makes an HTTP request to the webtrigger URL that will provision AWS resources</dd>
+  <dt><code>deprovision</code></dt>
+  <dd>Delete previously provisioned AWS resources</dd>
 </dl>
 
 ## Contributions
 
-Contributions to [Project name] are welcome!
+Contributions to the Atlassian Forge AWS SDK Demo are welcome!
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
