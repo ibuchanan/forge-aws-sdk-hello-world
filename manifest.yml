@@ -1,4 +1,9 @@
 modules:
+  jira:issuePanel:
+    - key: issue-panel
+      function: panel-renderer
+      title: AWS
+      icon: https://marketplace-cdn.atlassian.com/files/45ed8094-a0b2-4e39-98ff-8d105cc66e3f?fileType=image&amp;mode=full-fit
   trigger:
     - key: trigger-lifecycle
       function: lifecycle-handler
@@ -17,12 +22,15 @@ modules:
       handler: index.webtriggerProvision
     - key: deprovision-handler
       handler: index.webtriggerDeprovision
+    - key: panel-renderer
+      handler: index.panel
 app:
   runtime:
     name: nodejs18.x
   id: ari:cloud:ecosystem::app/3af4f90a-89a1-4150-b13d-79d51020b197
 permissions:
-  scopes: []
+  scopes:
+    - read:jira-work
   external:
     fetch:
       backend:

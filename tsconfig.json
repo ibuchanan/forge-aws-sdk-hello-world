@@ -2,8 +2,7 @@
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": ".",
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
     "esModuleInterop": true,
     "importHelpers": false,
     "lib": ["esnext"],
@@ -16,6 +15,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "jsx": "react-jsx"
   }
 }

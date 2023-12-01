@@ -2,12 +2,14 @@
 
 [![Apache 2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
-Example Forge app using native Node.js runtime and AWS SDK for JavaScript
+This repo is a proof-of-concept Forge app using:
 
-- Just getting started with Atlassian Forge? [Try a simple "hello world" app first](https://go.atlassian.com/forge)
-- Interested in the new runtime? [Learn more from the Atlassian documentation](https://go.atlassian.com/runtime)
+- **Atlassian Forge**. If this is your first Forge app, [try a simple "hello world" app first](https://go.atlassian.com/forge)
+- **Native Node.js Runtime** (previously known as "Runtime v2"). [Learn more from the Atlassian documentation](https://go.atlassian.com/runtime)
 - Interested in the AWS SDK for JavaScript? [Learn more from the AWS documentation](aws.amazon.com/sdk-for-javascript)
-- Questions? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
+- **TypeScript**. If you aren't familiar with the TypeScript toolchain, it only takes [5 minutes learn learn](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html).
+
+Questions? Join the conversation in [the Atlassian developer community](https://community.developer.atlassian.com/c/forge/)
 
 ## Exploring the app
 

@@ -14,7 +14,7 @@ export async function webtriggerProvision(req: any) {
   try {
     const body = JSON.parse(req.body);
     console.log(`Webtrigger request: ${JSON.stringify(body)}`);
-    await provisionForTenant(body.id);
+    await provisionForTenant(body.cloudId);
     return buildResponse();
   } catch (error) {
     if (typeof error === "string") {
@@ -32,7 +32,7 @@ export async function webtriggerDeprovision(req: any) {
   try {
     const body = JSON.parse(req.body);
     console.log(`Webtrigger request: ${JSON.stringify(body)}`);
-    await deprovisionForTenant(body.id);
+    await deprovisionForTenant(body.cloudId);
     return buildResponse();
   } catch (error) {
     if (typeof error === "string") {

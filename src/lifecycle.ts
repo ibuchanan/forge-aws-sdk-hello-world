@@ -11,15 +11,15 @@ export async function lifecycle(event: any, context: any) {
   }
   https://developer.atlassian.com/platform/forge/events-reference/life-cycle/
   */
-  console.log(`Received lifecycle`);
-  console.log(`    event: ${JSON.stringify(event)}`);
-  console.log(`    context: ${JSON.stringify(context)}`);
-  //const account = event.installerAccountId || event.upgraderAccountId;
-  const account = 1;
-  console.log(`Installed/upgraded`);
+  console.log(`Received app lifecycle event`);
+  // console.log(`    event: ${JSON.stringify(event)}`);
+  const account = event.installerAccountId || event.upgraderAccountId;
+  console.log(`App installed/upgraded`);
+  console.log(`    event type: ${event.eventType}`);
   console.log(`    performed by: ${account}`);
+  console.log(`    into cloud id: ${event.context.cloudId}`);
   console.log(`    app version: ${event.app.version}`);
   console.log(`    installation id: ${event.id}`);
-  console.log(`Runtime versions ${process.versions}`);
-  console.log(`Environment variables: ${process.env}`);
+  // console.log(`Runtime versions ${JSON.stringify(process.versions)}`);
+  console.log(`Node.js runtime version ${process.versions.node}`);
 }
