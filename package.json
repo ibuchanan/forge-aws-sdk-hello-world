@@ -66,9 +66,9 @@
     "first-time": "cp --update ./.env.example ./.env && npm -s run forge:register",
     "provision": "set -a && . ./.env && ./scripts/webtrigger-provision.sh",
     "provision:clientid": "set -a && . ./.env && curl --silent $FORGE_DEV_SITE/_edge/tenant_info",
-    "provision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-provision' $(forge install list --json | jq -r '.[]|select(.site|inside(\"'$FORGE_DEV_SITE'\"))|.id') | awk 'NR == 9 {print}'",
+    "provision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-provision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'",
     "deprovision": "set -a && . ./.env && ./scripts/webtrigger-deprovision.sh",
-    "deprovision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-deprovision' $(forge install list --json | jq -r '.[]|select(.site|inside(\"'$FORGE_DEV_SITE'\"))|.id') | awk 'NR == 9 {print}'"
+    "deprovision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-deprovision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'"
   },
   "devDependencies": {
     "@forge/cli": "^6.21.1",
