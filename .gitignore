@@ -7,3 +7,6 @@ out/
 
 # dotenv environment variables
 .env
+
+# ngrok configuration with auth token
+ngrok.yml

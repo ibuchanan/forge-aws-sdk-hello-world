@@ -13,8 +13,8 @@
     "url": "https://github.com/ibuchanan/forge-aws-sdk-hello-world"
   },
   "engines": {
-    "npm": "9",
-    "node": "18.18.1"
+    "npm": "10",
+    "node": "18.19"
   },
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -63,7 +63,10 @@
     "test": "npm -s run test:jest",
     "test:jest": "jest .",
     "deploy": "npm -s run forge:variables:set:dotenv && npm -s run forge:deploy",
-    "first-time": "cp --update ./.env.example ./.env && npm -s run forge:register",
+    "first-time": "npm -s run first-time:dotenv && npm -s run first-time:register && npm -s run first-time:ngrok",
+    "first-time:dotenv": "cp --update ./.env.example ./.env",
+    "first-time:register": "npm -s run forge:register",
+    "first-time:ngrok": "npm -s run forge:settings -- set ngrok-config-path ngrok.yml",
     "provision": "set -a && . ./.env && ./scripts/webtrigger-provision.sh",
     "provision:clientid": "set -a && . ./.env && curl --silent $FORGE_DEV_SITE/_edge/tenant_info",
     "provision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-provision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'",
@@ -71,9 +74,9 @@
     "deprovision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-deprovision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'"
   },
   "devDependencies": {
-    "@forge/cli": "^6.21.1",
+    "@forge/cli": "7",
     "@tsconfig/node18": "18",
-    "@types/jest": "24",
+    "@types/jest": "29",
     "@types/node": "18",
     "@typescript-eslint/eslint-plugin": "6",
     "@typescript-eslint/parser": "6",
@@ -95,7 +98,7 @@
     "@aws-sdk/client-dynamodb": "^3.462.0",
     "@aws-sdk/client-s3": "^3",
     "@aws-sdk/client-sns": "^3.462.0",
-    "@forge/api": "^2.21.0",
+    "@forge/api": "^3",
     "@forge/ui": "^1.10.0",
     "zod": "^3"
   }
