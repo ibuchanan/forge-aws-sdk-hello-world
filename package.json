@@ -14,7 +14,7 @@
   },
   "engines": {
     "npm": "10",
-    "node": "18.19"
+    "node": "18.20"
   },
   "main": "out/index.js",
   "types": "out/index.d.ts",
@@ -63,10 +63,9 @@
     "test": "npm -s run test:jest",
     "test:jest": "jest .",
     "deploy": "npm -s run forge:variables:set:dotenv && npm -s run forge:deploy",
-    "first-time": "npm -s run first-time:dotenv && npm -s run first-time:register && npm -s run first-time:ngrok",
+    "first-time": "npm -s run first-time:dotenv && npm -s run first-time:register",
     "first-time:dotenv": "cp --update ./.env.example ./.env",
     "first-time:register": "npm -s run forge:register",
-    "first-time:ngrok": "npm -s run forge:settings -- set ngrok-config-path ngrok.yml",
     "provision": "set -a && . ./.env && ./scripts/webtrigger-provision.sh",
     "provision:clientid": "set -a && . ./.env && curl --silent $FORGE_DEV_SITE/_edge/tenant_info",
     "provision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-provision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'",
@@ -74,18 +73,18 @@
     "deprovision:webtrigger": "set -a && . ./.env && forge webtrigger --functionKey 'webtrigger-deprovision' $(forge install list --json | node -e 'console.log(JSON.parse(fs.readFileSync(0)).filter(i=>\"'$FORGE_DEV_SITE'\".includes(i.site))[0].id)') | awk 'NR == 9 {print}'"
   },
   "devDependencies": {
-    "@forge/cli": "7",
+    "@forge/cli": "*",
     "@tsconfig/node18": "18",
     "@types/jest": "29",
     "@types/node": "18",
-    "@typescript-eslint/eslint-plugin": "6",
-    "@typescript-eslint/parser": "6",
-    "dotenv-safe": "^8",
+    "@typescript-eslint/eslint-plugin": "7",
+    "@typescript-eslint/parser": "7",
+    "dotenv-safe": "9",
     "eslint": "8",
     "eslint-config-prettier": "9",
     "eslint-import-resolver-typescript": "3",
     "eslint-plugin-import": "2",
-    "eslint-plugin-jest": "27",
+    "eslint-plugin-jest": "28",
     "eslint-plugin-prettier": "5",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "29",
@@ -95,11 +94,11 @@
     "typescript": "5"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.462.0",
-    "@aws-sdk/client-s3": "^3",
-    "@aws-sdk/client-sns": "^3.462.0",
-    "@forge/api": "^3",
-    "@forge/ui": "^1.10.0",
-    "zod": "^3"
+    "@aws-sdk/client-dynamodb": "3",
+    "@aws-sdk/client-s3": "3",
+    "@aws-sdk/client-sns": "3",
+    "@forge/api": "3",
+    "@forge/ui": "^1.11",
+    "zod": "3"
   }
 }

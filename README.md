@@ -47,25 +47,6 @@ AWS_SECRET_ACCESS_KEY=
 npm install
 ```
 
-### Configure ngrok
-
-[Tunneling](https://developer.atlassian.com/platform/forge/tunneling/#ngrokconfig)
-runs your app code locally on your machine
-via the Forge CLI and ngrok.
-[Ngrok](https://ngrok.com/) is a globally distributed reverse proxy
-that allows the Forge tunnel to securely reach your machine.
-
-See Forge documentation on [providing credentials for ngrok](https://developer.atlassian.com/platform/forge/tunneling/#providing-credentials-for-ngrok).
-Save the following text as `ngrok.yml`
-and the `npm run first-time` script will handle settings.
-
-```yaml
-version: 2
-log_level: debug
-region: us
-authtoken: <your-ngrok-authtoken>
-```
-
 ### Forge app dev loop
 
 For the sake of quick & easy access to the demo,
