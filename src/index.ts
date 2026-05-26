@@ -1,3 +1,3 @@
-export { lifecycle } from "./lifecycle";
-export { webtriggerProvision, webtriggerDeprovision } from "./webtrigger";
-export { panel } from "./panel";
+export { lifecycle } from './lifecycle'
+export { panelResolver } from './resolvers/panel'
+export { webtriggerDeprovision, webtriggerProvision } from './webtrigger'

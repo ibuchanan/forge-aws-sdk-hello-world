@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 /*
 https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
@@ -11,7 +11,7 @@ const envSchema = z.object({
   AWS_DEFAULT_REGION: z.string().min(1),
   AWS_ACCESS_KEY_ID: z.string().min(1),
   AWS_SECRET_ACCESS_KEY: z.string().min(1),
-});
+})
 
 /*
 Configuration happens in the Forge runtime.
@@ -19,12 +19,12 @@ Variables must be set using `forge variables set $key $value`.
 Mapping from .env to Forge variables is handled by npm scripts.
 */
 const config = envSchema.parse({
-  APP_NAME: "forge-aws-demo",
+  APP_NAME: 'forge-aws-demo',
   AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION,
   AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
   AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
-});
+})
 
-console.log(`Configuration found in env vars for ${Object.keys(config)}`);
+console.log(`Configuration found in env vars for ${Object.keys(config)}`)
 
-export default config;
+export default config

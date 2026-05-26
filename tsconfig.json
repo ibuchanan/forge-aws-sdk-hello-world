@@ -1,21 +1,37 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["src"],
+  "exclude": ["src/frontend"],
   "compilerOptions": {
-    "allowJs": false,
-    "baseUrl": ".",
-    "declaration": false,
+    /* Base Options */
     "esModuleInterop": true,
-    "importHelpers": false,
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "outDir": "./out",
-    "rootDir": "src",
-    "resolveJsonModule": true,
     "skipLibCheck": true,
+    "target": "ES2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+
+    /* Transpiling for Forge bundler (requried) */
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+
+    /* Strictness */
     "strict": true,
-    "target": "es2017",
-    "types": ["jest", "node"],
-    "jsx": "react-jsx"
+    "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+
+    /* Types */
+    "types": ["node"],
+
+    /* Forge Runtime & UI */
+    "lib": ["ES2022"]
   }
 }

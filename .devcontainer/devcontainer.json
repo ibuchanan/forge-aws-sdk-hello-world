@@ -1,6 +1,6 @@
 {
   "name": "Atlassian Forge",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
   "features": {},
   "customizations": {
     "vscode": {

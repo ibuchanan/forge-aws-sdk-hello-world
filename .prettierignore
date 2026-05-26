@@ -1,8 +1,0 @@
-# Typescript
-## tsconfig.json
-### compilerOptions.outDir
-out/
-
-# npm
-package.json
-package-lock.json
